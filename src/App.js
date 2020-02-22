@@ -1,25 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom';
+
+import Header from './components/headerComponent/header';
+import Footer from './components/footerComponent/footer';
+import Sidenavbar from './components/sidenavbarComponent/sidenavbar';
+import Homepage from './components/pages/homePage';
+import Projects from './components/pages/projects';
+import FlightPlanning from './components/pages/flightplanning';
+import "./Assets/css/default.min.css";
 
 function App() {
   return (
+    <Router>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Header />
+      <div className="row flex-xl-nowrap">
+       <Sidenavbar />
+         <main role="main" className="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
+           <Route exact path='/' component={Homepage} />
+           <Route exact path='/Products' component={Projects} />
+           <Route exact path='/FlightPlanning' component={FlightPlanning} />
+         </main>
+      </div>
+      <Footer />
     </div>
+    </Router>
   );
 }
 
