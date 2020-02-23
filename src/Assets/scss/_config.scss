@@ -1,11 +1,11 @@
-$black: #010000;
+/*$black: #010000;
 $lightGrey: #e6e6e6e;
 $darkGrey: #333;
 $red: #ff1755;
 
 /*mixins*/
 
-@mixin translateY($e){
+/*@mixin translateY($e){
   -webkit-transform: translateY($e);
   -moz-transform: translateY($e);
   transform: translateY($e);
@@ -39,4 +39,4 @@ a:hover{
 
 .container-fluid{
   line-height: 24px;
-}
+}*/

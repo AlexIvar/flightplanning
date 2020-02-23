@@ -9,24 +9,35 @@ import Footer from './components/footerComponent/footer';
 import Sidenavbar from './components/sidenavbarComponent/sidenavbar';
 import Homepage from './components/pages/homePage';
 import FlightPlanning from './components/pages/flightplanning';
-import "./Assets/css/default.min.css";
+
+
 
 function App() {
   return (
-    <Router>
+   <Router>
     <div className="App">
-    <Header />
-      <div className="row flex-xl-nowrap">
-       <Sidenavbar />
-         <main role="main" className="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
-           <Route exact path='/' component={Homepage} />
-           <Route exact path='/FlightPlanning' component={FlightPlanning} />
-         </main>
-      </div>
-      <Footer />
-    </div>
+      <div className="d-flex" id="wrapper">
+        <Sidenavbar />
+          <div id="page-content-wrapper">
+            <Header />
+              <main role="main" className="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
+                <Route exact path='/' component={Homepage} />
+                <Route exact path='/FlightPlanning' component={FlightPlanning} />
+              </main>
+          </div>
+       </div>
+     </div>
     </Router>
-  );
+
+
+
+    /*<Footer />*/
+
+/*  $("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+  });*/
+);
 }
 
 export default App;
