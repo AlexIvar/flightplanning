@@ -21,10 +21,8 @@ class FlightPlanning extends Component {
         <h1>Mass and balance</h1>
 
           {/* Here we will have a image of the mass and balance sheet */}
-
           <Row>
-            <Col xs={6}><img id="printarea" className="responsive" src="/mass.png" /></Col>
-            <Col xs={6}>
+            <Col>
             <Form id="massform">
                 {/*Aircraft*/}
                 <Form.Group controlId="exampleForm.ControlSelect1">
@@ -79,6 +77,10 @@ class FlightPlanning extends Component {
 
             </Form>
             </Col>
+          </Row>
+          <br />
+          <Row>
+            <Col><img id="printarea" className="responsive" src="/mass.png" /></Col>
           </Row>
 
         </Container>
