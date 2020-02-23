@@ -9,7 +9,7 @@ function Header() {
   <nav className="navbar fixed-top navbar-light bg-light shadow">
   <div className="navbar-brand">
     <img src="/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" className="d-inline-block align-top" alt="" />
-    <Link to="/"> Alex Ívar Ívarsson</Link>
+    <Link to="/"> Flight planning Pro</Link>
   </div>
   </nav>
 </header>

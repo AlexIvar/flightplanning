@@ -5,10 +5,10 @@ function Homepage() {
     <div className="container-fluid">
       <div className="jumbotron jumbotron-fluid">
         <div className="container">
-          <h1 className="display-4">Welcome to my portfolio!</h1>
+          <h1 className="display-4">Flight planning Pro</h1>
             <p className="lead">
-              Full stack developer
-            
+              Big things are comming up!
+
             </p>
         </div>
       </div>

@@ -11,10 +11,7 @@ function Sidenavbar() {
           <div className="bd-toc-link"><i className="fa fa-code"></i><Link to="/"> Home</Link></div>
         </div>
         <div className="bd-toc-item">
-          <div className="bd-toc-link"><i className="fa fa-code"></i><Link to="/Products"> My projects</Link></div>
-        </div>
-        <div className="bd-toc-item">
-          <div className="bd-toc-link"><i className="fa fa-code"></i><Link to="/FlightPlanning"> Flight planning</Link></div>
+          <div className="bd-toc-link"><i className="fa fa-code"></i><Link to="/FlightPlanning"> Mass and balance</Link></div>
         </div>
       </nav>
     </div>

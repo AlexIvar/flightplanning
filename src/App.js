@@ -8,7 +8,6 @@ import Header from './components/headerComponent/header';
 import Footer from './components/footerComponent/footer';
 import Sidenavbar from './components/sidenavbarComponent/sidenavbar';
 import Homepage from './components/pages/homePage';
-import Projects from './components/pages/projects';
 import FlightPlanning from './components/pages/flightplanning';
 import "./Assets/css/default.min.css";
 
@@ -21,7 +20,6 @@ function App() {
        <Sidenavbar />
          <main role="main" className="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
            <Route exact path='/' component={Homepage} />
-           <Route exact path='/Products' component={Projects} />
            <Route exact path='/FlightPlanning' component={FlightPlanning} />
          </main>
       </div>
