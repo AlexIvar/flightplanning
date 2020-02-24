@@ -609,7 +609,7 @@ class FlightPlanning extends Component {
           <Row>
             <Col><div id="printarea">
              <canvas id="mycanvas" ref="canvas" />
-              <img ref="image" className="hidden" alt="" src="/mass_upscaled.png" /></div>
+              <img ref="image" className="hidden" alt="" src="/mass.png" /></div>
             </Col>
           </Row>
 
