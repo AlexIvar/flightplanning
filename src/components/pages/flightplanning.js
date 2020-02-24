@@ -17,7 +17,7 @@ class FlightPlanning extends Component {
     canvas.height = canvas.width * 1.5;
 
     var base_image = new Image();
-    base_image.src = '/mass.png';
+    base_image.src = '/mass1.png';
 
     base_image.onload = function(){
 
@@ -114,7 +114,7 @@ class FlightPlanning extends Component {
          //mtom = aplane.mtom;
 
          /*empty leverarm*/
-         ctx.fillText(checkvalue(roundToTwoTwo(moment/mass)), 1350, 720);
+         ctx.fillText(checkvalue(roundToTwoTwo(moment/mass)), 50, 100);
          /*empty mass*/
          ctx.fillText(checkvalue(mass), 2050, 720);
          /*empty moment*/
