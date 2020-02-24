@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 
 import Header from './components/headerComponent/header';
-import Footer from './components/footerComponent/footer';
+/*import Footer from './components/footerComponent/footer';*/
 import Sidenavbar from './components/sidenavbarComponent/sidenavbar';
 import Homepage from './components/pages/homePage';
 import FlightPlanning from './components/pages/flightplanning';

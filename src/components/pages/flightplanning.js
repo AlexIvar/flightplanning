@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Apitest from './apitest';
+/*import Apitest from './apitest';*/
 import './flightplanning.css';
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -38,7 +38,7 @@ class FlightPlanning extends Component {
        var aplane;
        var mass;
        var moment;
-       var mtom;
+       //var mtom;
        var frontseat1value;
        var frontseat2value;
        var frontseatvalue;
@@ -57,18 +57,18 @@ class FlightPlanning extends Component {
        var aftbaggagemomentvalue;
        var zerofuelmassvalue;
        var zerofuelmassmomentvalue;
-       var zerofuelmassleverarmvalue;
-       var zerofuelmassleverarmvalue2;
+       /*var zerofuelmassleverarmvalue;*/
+       /*var zerofuelmassleverarmvalue2;*/
        var fuelmassvalue;
        var fuelmomentvalue;
        var takeoffmassleverarmvalue;
-       var takeoffmassleverarmvalue2;
+      /* var takeoffmassleverarmvalue2;*/
        var takeoffmassvalue;
        var takeoffmassmomentvalue;
        var fuelburnmassvalue;
        var fuelburnmomentvalue;
        var landingmassleverarmvalue;
-       var landingmassleverarmvalue2;
+       /*var landingmassleverarmvalue2;*/
        var landingmassvalue;
        var landingmassmomentvalue;
 
@@ -101,7 +101,7 @@ class FlightPlanning extends Component {
          aplane = aircraftlist.find(x => x.value === document.getElementById("exampleForm.aircraft").value);
          mass = aplane.mass;
          moment = aplane.moment;
-         mtom = aplane.mtom;
+         //mtom = aplane.mtom;
 
          /*empty leverarm*/
          ctx.fillText(checkvalue(roundToTwoTwo(moment/mass)), 1350, 720);
@@ -298,7 +298,7 @@ class FlightPlanning extends Component {
 
             zerofuelmassvalue = roundToTwo( +mass + +frontseatvalue + +backseatsvalue + +stdbaggagevalue + +baggagetubemassvalue + +shortbaggagemassvalue + +forwardbaggagemassvalue + +aftbaggagemassvalue);
             zerofuelmassmomentvalue = roundToTwo(+moment + +frontseatmomentvalue + +backseatmomentvalue + +stdbaggagevaluemoment + +baggagetubemomentvalue + +shortbaggagemomentvalue + +forwardbaggagemomentvalue + +aftbaggagemomentvalue);
-            zerofuelmassleverarmvalue = roundToTwo(zerofuelmassmomentvalue / zerofuelmassvalue);
+            /*zerofuelmassleverarmvalue = roundToTwo(zerofuelmassmomentvalue / zerofuelmassvalue);*/
 
            /*zero fuel mass leverarm*/
            ctx.fillText(checkvalue(roundToTwo(zerofuelmassmomentvalue / zerofuelmassvalue)) , 1350, 2930);
@@ -609,7 +609,7 @@ class FlightPlanning extends Component {
           <Row>
             <Col><div id="printarea">
              <canvas id="mycanvas" ref="canvas" />
-              <img ref="image" className="hidden" src="/mass_upscaled.png" /></div>
+              <img ref="image" className="hidden" alt="" src="/mass_upscaled.png" /></div>
             </Col>
           </Row>
 
