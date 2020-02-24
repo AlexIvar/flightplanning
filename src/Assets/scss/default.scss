@@ -1,4 +1,5 @@
 @import "_config.scss";
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker&disp');
 
 /*
 .collapse:not(.show) {
@@ -134,4 +135,24 @@ body {
 @media screen {
     /* Hide the special layer from the screen. */
     #print-me { display: none; }
+}
+
+
+#texttest{
+  position:static;
+  top:225px;
+  left:520px;
+}
+
+#mycanvas {
+  width: 100%;
+  border: solid 2px black;
+}
+
+.hidden{
+  display: none;
+}
+
+#mlabel{
+  font-size: 12px;
 }
