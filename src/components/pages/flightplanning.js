@@ -661,7 +661,7 @@ class FlightPlanning extends Component {
             </Form>
             </Col>
           </Row>
-
+          <br />
           <Button id="btn" variant="primary" size="md" block>
             Print
           </Button>
@@ -669,8 +669,8 @@ class FlightPlanning extends Component {
           <Row>
             <Col>
             <div id="printarea">
-             <canvas id="mycanvas" ref="canvas" />
-             <canvas id="mycanvas2" ref="canvas2" />
+             <canvas class="result" id="mycanvas" ref="canvas" />
+             <canvas class ="result" id="mycanvas2" ref="canvas2" />
             </div>
             </Col>
           </Row>

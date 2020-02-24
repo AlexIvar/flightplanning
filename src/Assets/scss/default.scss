@@ -130,6 +130,8 @@ body {
     body.printing * { display: none; }
     /* ...except our special div. */
     body.printing #print-me { display: block; }
+
+    .result {page-break-after: always;}
 }
 
 @media screen {
