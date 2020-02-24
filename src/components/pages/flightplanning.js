@@ -48,7 +48,8 @@ class FlightPlanning extends Component {
        var aplane;
        var mass;
        var moment;
-       //var mtom;
+       var mtom;
+       var aircraftnumber;
        var frontseat1value;
        var frontseat2value;
        var frontseatvalue;
@@ -84,6 +85,8 @@ class FlightPlanning extends Component {
 
 
        var aircraftlist = [
+       { value: 'A', mass: '954', moment: 2362, mtom: 1310 },
+       { value: 'B', mass: '948', moment: 2345, mtom: 1310 },
        { value: 'C', mass: '958', moment: 2377, mtom: 1310 },
        { value: 'D', mass: '954', moment: 2365, mtom: 1310 },
        { value: 'E', mass: '962', moment: 2393, mtom: 1280 },
@@ -101,24 +104,35 @@ class FlightPlanning extends Component {
 
        $("#aircraft").change(function(){
 
+         /*mtom text*/
+         ctx.clearRect(700, 10, '180', '38');
+         /*aircraft number text*/
+         ctx.clearRect(100, 10, '120', '38');
+
          /*empty leverarm*/
-         ctx.clearRect(1220, 610, '480', '150');
+         ctx.clearRect(305, 153, '120', '38');
          /*empty mass*/
-         ctx.clearRect(2000, 610, '480', '150');
+         ctx.clearRect(500, 153, '120', '38');
          /*empty moment*/
-         ctx.clearRect(2720, 610, '480', '150');
+         ctx.clearRect(680, 153, '120', '38');
 
          aplane = aircraftlist.find(x => x.value === document.getElementById("exampleForm.aircraft").value);
          mass = aplane.mass;
          moment = aplane.moment;
-         //mtom = aplane.mtom;
+         mtom = aplane.mtom;
+         aircraftnumber = 'G-CTS' + aplane.value;
+
+         /*mtom text*/
+         ctx.fillText("MTOM: " + mtom, 700, 40);
+         /*aircraftnumber text*/
+         ctx.fillText(aircraftnumber, 100, 40);
 
          /*empty leverarm*/
-         ctx.fillText(checkvalue(roundToTwoTwo(moment/mass)), 345, 180);
+         ctx.fillText(checkvalue(roundToTwoTwo(moment/mass)), 338, 180);
          /*empty mass*/
-         ctx.fillText(checkvalue(mass), 2050, 720);
+         ctx.fillText(checkvalue(mass), 513, 180);
          /*empty moment*/
-         ctx.fillText(checkvalue(moment), 2750, 720);
+         ctx.fillText(checkvalue(moment), 688, 180);
 
          updateZerofuelMass();
 
@@ -127,9 +141,9 @@ class FlightPlanning extends Component {
        $("#frontseat1").change(function(){
 
          /*front seats mass*/
-         ctx.clearRect(2000, 780, '480', '150');
+         ctx.clearRect(500, 195, '120', '38');
          /*front seat moment*/
-         ctx.clearRect(2720, 780, '480', '150');
+         ctx.clearRect(680, 195, '120', '38');
 
          frontseat1value = document.getElementById("frontseat1").value;
          frontseat2value = document.getElementById("exampleForm.frontseat2").value;
@@ -137,9 +151,9 @@ class FlightPlanning extends Component {
          frontseatvalue = roundToTwo(+frontseat1value + +frontseat2value);
          frontseatmomentvalue = roundToTwo(frontseatvalue * 2.3);
          /*front seats mass*/
-         ctx.fillText(checkvalue(frontseatvalue), 2050, 910);
+         ctx.fillText(checkvalue(frontseatvalue), 513, 228);
          /*front seat moment*/
-         ctx.fillText(checkvalue(frontseatmomentvalue), 2750, 910);
+         ctx.fillText(checkvalue(frontseatmomentvalue), 688, 228);
 
          updateZerofuelMass();
        });
@@ -147,9 +161,9 @@ class FlightPlanning extends Component {
        $("#frontseat2").change(function(){
 
          /*front seats mass*/
-         ctx.clearRect(2000, 780, '480', '150');
+         ctx.clearRect(500, 195, '120', '38');
          /*front seat moment*/
-         ctx.clearRect(2720, 780, '480', '150');
+         ctx.clearRect(680, 195, '120', '38');
 
          frontseat2value = document.getElementById("exampleForm.frontseat2").value;
          frontseat1value = document.getElementById("frontseat1").value;
@@ -157,9 +171,9 @@ class FlightPlanning extends Component {
          frontseatvalue = roundToTwo(+frontseat1value + +frontseat2value);
          frontseatmomentvalue = roundToTwo(frontseatvalue * 2.3);
          /*front seats mass*/
-         ctx.fillText(checkvalue(frontseatvalue), 2050, 910);
+         ctx.fillText(checkvalue(frontseatvalue), 513, 228);
          /*front seat moment*/
-         ctx.fillText(checkvalue(frontseatmomentvalue), 2750, 910);
+         ctx.fillText(checkvalue(frontseatmomentvalue), 688, 228);
 
          updateZerofuelMass();
        });
@@ -168,16 +182,16 @@ class FlightPlanning extends Component {
        $("#backseats").change(function(){
 
          /*rear seats mass*/
-         ctx.clearRect(2000, 955, '480', '150');
+         ctx.clearRect(500, 239, '120', '38');
          /*rear seats moment*/
-         ctx.clearRect(2720, 955, '480', '150');
+         ctx.clearRect(680, 239, '120', '38');
 
          backseatsvalue = document.getElementById("backseats").value;
          backseatmomentvalue = roundToTwo((backseatsvalue * 3.25));
          /*rear seats mass*/
-         ctx.fillText(checkvalue(backseatsvalue), 2050, 1080);
+         ctx.fillText(checkvalue(backseatsvalue), 513, 270);
          /*rear seats moment*/
-         ctx.fillText(checkvalue(backseatmomentvalue), 2750, 1080);
+         ctx.fillText(checkvalue(backseatmomentvalue), 688, 270);
 
          updateZerofuelMass();
        });
@@ -186,34 +200,34 @@ class FlightPlanning extends Component {
        $("#stdbaggage").change(function(){
 
          /*standard baggage mass*/
-         ctx.clearRect(2000, 1125, '480', '150');
+         ctx.clearRect(500, 281, '120', '38');
          /*standard baggage moment*/
-         ctx.clearRect(2720, 1125, '480', '150');
+         ctx.clearRect(680, 281, '120', '38');
 
          stdbaggagevalue = document.getElementById("stdbaggage").value;
          stdbaggagevaluemoment = roundToTwo((stdbaggagevalue * 3.65));
 
          /*standard baggage mass*/
-         ctx.fillText(checkvalue(stdbaggagevalue), 2050, 1270);
+         ctx.fillText(checkvalue(stdbaggagevalue), 513, 318);
          /*standard baggage moment*/
-         ctx.fillText(checkvalue(stdbaggagevaluemoment), 2750, 1270);
+         ctx.fillText(checkvalue(stdbaggagevaluemoment), 688, 318);
 
          updateZerofuelMass();
        });
 
        $("#baggagetube").change(function(){
          /*baggage tube mass*/
-         ctx.clearRect(2000, 1325, '480', '150');
+         ctx.clearRect(500, 331, '120', '38');
          /*baggage tube mass moment*/
-         ctx.clearRect(2720, 1325, '480', '150');
+         ctx.clearRect(680, 331, '120', '38');
 
          baggagetubemassvalue = document.getElementById("baggagetube").value;
          baggagetubemomentvalue = roundToTwo((baggagetubemassvalue * 3.65));
 
          /*standard baggage mass*/
-         ctx.fillText(checkvalue(baggagetubemassvalue), 2050, 1450);
+         ctx.fillText(checkvalue(baggagetubemassvalue), 513, 363);
          /*standard baggage moment*/
-         ctx.fillText(checkvalue(baggagetubemomentvalue), 2750, 1450);
+         ctx.fillText(checkvalue(baggagetubemomentvalue), 688, 363);
 
          updateZerofuelMass();
 
@@ -222,17 +236,17 @@ class FlightPlanning extends Component {
        $("#shortbaggae").change(function(){
 
          /*short baggage mass*/
-         ctx.clearRect(2000, 1650, '480', '150');
+         ctx.clearRect(500, 413, '120', '38');
          /*short bagggage mass moment*/
-         ctx.clearRect(2720, 1650, '480', '150');
+         ctx.clearRect(680, 413, '120', '38');
 
          shortbaggagemassvalue = document.getElementById("shortbaggae").value;
          shortbaggagemomentvalue = roundToTwo((shortbaggagemassvalue * 3.65));
 
          /*short baggage mass*/
-         ctx.fillText(checkvalue(shortbaggagemassvalue), 2050, 1780);
+         ctx.fillText(checkvalue(shortbaggagemassvalue), 513, 445);
          /*short baggage moment*/
-         ctx.fillText(checkvalue(shortbaggagemomentvalue), 2750, 1780);
+         ctx.fillText(checkvalue(shortbaggagemomentvalue), 688, 445);
 
          updateZerofuelMass();
        });
@@ -240,17 +254,17 @@ class FlightPlanning extends Component {
        $("#fwdbaggage").change(function(){
 
          /*fwd baggage mass*/
-         ctx.clearRect(2000, 2050, '480', '150');
+         ctx.clearRect(500, 513, '120', '38');
          /*fwd bagggage mass moment*/
-         ctx.clearRect(2720, 2050, '480', '150');
+         ctx.clearRect(680, 513, '120', '38');
 
          forwardbaggagemassvalue = document.getElementById("fwdbaggage").value;
          forwardbaggagemomentvalue = roundToTwo((forwardbaggagemassvalue * 3.65));
 
          /*fwd baggage mass*/
-         ctx.fillText(checkvalue(forwardbaggagemassvalue), 2050, 2185);
+         ctx.fillText(checkvalue(forwardbaggagemassvalue), 513, 546);
          /*fwd baggage moment*/
-         ctx.fillText(checkvalue(forwardbaggagemomentvalue), 2750, 2185);
+         ctx.fillText(checkvalue(forwardbaggagemomentvalue), 688, 546);
 
          updateZerofuelMass();
 
@@ -259,17 +273,17 @@ class FlightPlanning extends Component {
       $("#aftbaggage").change(function(){
 
         /*aft baggage mass*/
-        ctx.clearRect(2000, 2450, '480', '150');
+        ctx.clearRect(500, 613, '120', '38');
         /*aft bagggage mass moment*/
-        ctx.clearRect(2720, 2450, '480', '150');
+        ctx.clearRect(680, 613, '120', '38');
 
         aftbaggagemassvalue = document.getElementById("aftbaggage").value;
         aftbaggagemomentvalue = roundToTwo((aftbaggagemassvalue * 3.65));
 
         /*aft baggage mass*/
-        ctx.fillText(checkvalue(aftbaggagemassvalue), 2050, 2590);
+        ctx.fillText(checkvalue(aftbaggagemassvalue), 513, 648);
         /*aft baggage moment*/
-        ctx.fillText(checkvalue(aftbaggagemomentvalue), 2750, 2590);
+        ctx.fillText(checkvalue(aftbaggagemomentvalue), 688, 648);
 
         updateZerofuelMass();
 
@@ -279,13 +293,13 @@ class FlightPlanning extends Component {
           function updateZerofuelMass(){
 
             /*zero fuel mass leverarm*/
-            ctx.clearRect(1220, 2800, '480', '200');
+            ctx.clearRect(305, 700, '120', '50');
             /*zero fuel mass mass*/
-            ctx.clearRect(2000, 2800, '480', '200');
+            ctx.clearRect(500, 700, '120', '50');
             /*zero fuel mass moment*/
-            ctx.clearRect(2720, 2800, '480', '200');
+            ctx.clearRect(680, 700, '120', '50');
             /*zero fuel mass lverarm 2*/
-            ctx.clearRect(2015, 4020, '475', '137');
+            ctx.clearRect(504, 1005, '118', '34');
 
             mass = (mass === undefined ? '0' : mass);
             frontseatvalue = (frontseatvalue === undefined ? 0 : frontseatvalue);
@@ -311,13 +325,13 @@ class FlightPlanning extends Component {
             /*zerofuelmassleverarmvalue = roundToTwo(zerofuelmassmomentvalue / zerofuelmassvalue);*/
 
            /*zero fuel mass leverarm*/
-           ctx.fillText(checkvalue(roundToTwo(zerofuelmassmomentvalue / zerofuelmassvalue)) , 1350, 2930);
+           ctx.fillText(checkvalue(roundToTwo(zerofuelmassmomentvalue / zerofuelmassvalue)) , 338, 733);
            /*zero fuel mass mass*/
-           ctx.fillText(checkvalue(zerofuelmassvalue), 2050, 2930);
+           ctx.fillText(checkvalue(zerofuelmassvalue), 513, 733);
            /*zero fuel mass moment*/
-           ctx.fillText(checkvalue(zerofuelmassmomentvalue), 2750, 2930);
+           ctx.fillText(checkvalue(zerofuelmassmomentvalue), 688, 733);
            /*zero fuel mass leverarm 2*/
-           ctx.fillText(checkvalue(roundToThree(zerofuelmassmomentvalue / zerofuelmassvalue)), 2015, 4155);
+           ctx.fillText(checkvalue(roundToThree(zerofuelmassmomentvalue / zerofuelmassvalue)), 504, 1039);
 
            updateTakeoffMass();
         }
@@ -327,16 +341,16 @@ class FlightPlanning extends Component {
          $("#fuel").change(function(){
 
            /*fuel mass*/
-           ctx.clearRect(2000, 3040, '480', '150');
+           ctx.clearRect(500, 760, '120', '38');
            /*fuel moment*/
-           ctx.clearRect(2720, 3040, '480', '150');
+           ctx.clearRect(680, 760, '120', '38');
 
            fuelmassvalue = roundToTwo(document.getElementById("fuel").value * 3.03);
            fuelmomentvalue = roundToTwo(fuelmassvalue * 2.63);
            /*fuel mass*/
-           ctx.fillText(checkvalue(fuelmassvalue), 2050, 3150);
+           ctx.fillText(checkvalue(fuelmassvalue), 513, 788);
            /*fuel moment*/
-           ctx.fillText(checkvalue(fuelmomentvalue), 2750, 3150);
+           ctx.fillText(checkvalue(fuelmomentvalue), 688, 788);
 
            updateTakeoffMass();
 
@@ -346,13 +360,13 @@ class FlightPlanning extends Component {
          function updateTakeoffMass(){
 
            /*take of mass leverarm*/
-           ctx.clearRect(1220, 3250, '480', '220');
+           ctx.clearRect(305, 813, '120', '55');
            /*take of mass mass*/
-           ctx.clearRect(2000, 3250, '480', '220');
+           ctx.clearRect(500, 813, '120', '55');
            /*take of mass moment*/
-           ctx.clearRect(2720, 3250, '480', '220');
+           ctx.clearRect(680, 813, '120', '55');
            /*take of mass leverarm 2*/
-           ctx.clearRect(2015, 4180, '475', '95');
+           ctx.clearRect(504, 1045, '119', '24');
 
            zerofuelmassvalue = (zerofuelmassvalue === undefined ? 0 : zerofuelmassvalue);
            fuelmassvalue = (fuelmassvalue === undefined ? 0 : fuelmassvalue);
@@ -364,13 +378,13 @@ class FlightPlanning extends Component {
            takeoffmassleverarmvalue = roundToTwo(takeoffmassmomentvalue / takeoffmassvalue);
 
            /*take of mass leverarm*/
-           ctx.fillText(checkvalue(takeoffmassleverarmvalue), 1350, 3400);
+           ctx.fillText(checkvalue(takeoffmassleverarmvalue), 338, 850);
            /*take of mass mass*/
-           ctx.fillText(checkvalue(takeoffmassvalue), 2050, 3400);
+           ctx.fillText(checkvalue(takeoffmassvalue), 513, 850);
            /*take of mass moment*/
-           ctx.fillText(checkvalue(takeoffmassmomentvalue), 2750, 3400);
+           ctx.fillText(checkvalue(takeoffmassmomentvalue), 688, 850);
            /*take of mass leverarm 2*/
-           ctx.fillText(checkvalue(roundToThree(takeoffmassmomentvalue / takeoffmassvalue)), 2015, 4267);
+           ctx.fillText(checkvalue(roundToThree(takeoffmassmomentvalue / takeoffmassvalue)), 504, 1067);
 
            updatelandingmass();
 
@@ -381,17 +395,17 @@ class FlightPlanning extends Component {
          $("#fuelburn").change(function(){
 
            /*fuel burn mass*/
-           ctx.clearRect(2000, 3510, '515', '150');
+           ctx.clearRect(500, 878, '129', '38');
            /*fuel burn moment*/
-           ctx.clearRect(2720, 3510, '515', '150');
+           ctx.clearRect(680, 878, '129', '38');
 
            fuelburnmassvalue = roundToTwo((document.getElementById("fuelburn").value * 3.03));
            fuelburnmomentvalue = roundToTwo(fuelburnmassvalue * 2.63);
 
            /*fuel burn mass*/
-           ctx.fillText(checkvalue(fuelburnmassvalue), 2050, 3635);
+           ctx.fillText(checkvalue(fuelburnmassvalue), 513, 909);
            /*fuel burn moment*/
-           ctx.fillText(checkvalue(fuelburnmomentvalue), 2750, 3635);
+           ctx.fillText(checkvalue(fuelburnmomentvalue), 688, 909);
 
            updatelandingmass();
 
@@ -401,13 +415,13 @@ class FlightPlanning extends Component {
          function updatelandingmass(){
 
            /*landing mass leverarm*/
-           ctx.clearRect(1220, 3740, '510', '200');
+           ctx.clearRect(305, 935, '128', '50');
            /*landing mass mass*/
-           ctx.clearRect(2000, 3740, '510', '200');
+           ctx.clearRect(500, 935, '128', '50');
            /*landing mass moment*/
-           ctx.clearRect(2720, 3740, '510', '200');
+           ctx.clearRect(680, 935, '128', '50');
            /*landing mass leverarm 2*/
-           ctx.clearRect(2015, 4293, '475', '95');
+           ctx.clearRect(504, 1073, '119', '24');
 
            takeoffmassvalue = (takeoffmassvalue === undefined ? 0 : takeoffmassvalue);
            fuelburnmassvalue = (fuelburnmassvalue === undefined ? 0 : fuelburnmassvalue);
@@ -420,13 +434,13 @@ class FlightPlanning extends Component {
 
 
            /*landing mass leverarm*/
-           ctx.fillText(checkvalue(landingmassleverarmvalue), 1350, 3900);
+           ctx.fillText(checkvalue(landingmassleverarmvalue), 338, 975);
            /*landing mass mass*/
-           ctx.fillText(checkvalue(landingmassvalue), 2050, 3900);
+           ctx.fillText(checkvalue(landingmassvalue), 513, 975);
            /*landing mass moment*/
-           ctx.fillText(checkvalue(landingmassmomentvalue), 2750, 3900);
+           ctx.fillText(checkvalue(landingmassmomentvalue), 688, 975);
            /*landing mass levararm 2*/
-           ctx.fillText(checkvalue(roundToThree(landingmassmomentvalue / landingmassvalue)), 2015, 4380);
+           ctx.fillText(checkvalue(roundToThree(landingmassmomentvalue / landingmassvalue)), 504, 1095);
          }
 
      });
@@ -472,6 +486,8 @@ class FlightPlanning extends Component {
                <Col sm="10">
                   <Form.Control as="select">
                   <option value="-1">Aircraft</option>
+                  <option value="A">G-CTSA</option>
+                  <option value="B">G-CTSB</option>
                   <option value="C">G-CTSC</option>
                   <option value="D">G-CTSD</option>
                   <option value="E">G-CTSE</option>
