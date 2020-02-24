@@ -13,10 +13,16 @@ class FlightPlanning extends Component {
   componentDidMount() {
     const canvas = this.refs.canvas
     const ctx = canvas.getContext("2d")
-    const image1 = this.refs.image
+    /*const image1 = "/mass.png";//this.refs.image*/
     canvas.height = canvas.width * 1.5;
 
-    image1.onload = function(){
+    var base_image = new Image();
+    base_image.src = '/mass.png';
+
+    base_image.onload = function(){
+
+      console.log("widht: " + this.naturalWidth)
+      console.log("height: " + this.naturalHeight)
 
      // Use the intrinsic size of image in CSS pixels for the canvas element
      canvas.width = this.naturalWidth;
@@ -30,6 +36,10 @@ class FlightPlanning extends Component {
      // using the element's width and height properties - lets draw one
      // on top in the corner:
      ctx.drawImage(this, 0, 0, this.width, this.height);
+
+     console.log(" WIDTH: " + this.width)
+     console.log(" HEIGHT: " + this.height)
+
 
      ctx.font = "120px Permanent Marker";
 
@@ -609,7 +619,7 @@ class FlightPlanning extends Component {
           <Row>
             <Col><div id="printarea">
              <canvas id="mycanvas" ref="canvas" />
-              <img ref="image" className="hidden" alt="" src="/mass.png" /></div>
+             </div>
             </Col>
           </Row>
 
