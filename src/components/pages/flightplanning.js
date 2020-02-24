@@ -41,7 +41,7 @@ class FlightPlanning extends Component {
      console.log(" HEIGHT: " + this.height)
 
 
-     ctx.font = "120px Permanent Marker";
+     ctx.font = "30px Permanent Marker";
 
      /*Document ready*/
      $(document).ready(function(){
@@ -114,7 +114,7 @@ class FlightPlanning extends Component {
          //mtom = aplane.mtom;
 
          /*empty leverarm*/
-         ctx.fillText(checkvalue(roundToTwoTwo(moment/mass)), 50, 100);
+         ctx.fillText(checkvalue(roundToTwoTwo(moment/mass)), 345, 180);
          /*empty mass*/
          ctx.fillText(checkvalue(mass), 2050, 720);
          /*empty moment*/
