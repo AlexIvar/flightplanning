@@ -661,11 +661,14 @@ class FlightPlanning extends Component {
             </Form>
             </Col>
           </Row>
-          <br />
+
+          <br /> 
           <Button id="btn" variant="primary" size="md" block>
             Print
           </Button>
           <br />
+
+          <div class="pagebreak"> </div>
           <Row>
             <Col>
             <div id="printarea">
