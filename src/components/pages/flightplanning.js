@@ -12,12 +12,43 @@ import print from 'print-js'
 class FlightPlanning extends Component {
   componentDidMount() {
     const canvas = this.refs.canvas
+    const canvas2 = this.refs.canvas2
     const ctx = canvas.getContext("2d")
+    const ctx2 = canvas2.getContext("2d")
     /*const image1 = "/mass.png";//this.refs.image*/
     canvas.height = canvas.width * 1.5;
+    canvas2.height = canvas.width * 1.5;
 
     var base_image = new Image();
     base_image.src = '/mass1.png';
+
+    var base_image2 = new Image();
+    base_image2.src = '/mass3.jpg';
+
+    base_image2.onload = function(){
+
+      console.log("widht: " + this.naturalWidth)
+      console.log("height: " + this.naturalHeight)
+
+     // Use the intrinsic size of image in CSS pixels for the canvas element
+     canvas2.width = this.naturalWidth;
+     canvas2.height = this.naturalHeight;
+
+     // Will draw the image as 300x227, ignoring the custom size of 60x45
+     // given in the constructor
+     ctx2.drawImage(this, 0, 0);
+
+     // To use the custom size we'll have to specify the scale parameters
+     // using the element's width and height properties - lets draw one
+     // on top in the corner:
+     ctx2.drawImage(this, 0, 0, this.width, this.height);
+
+     console.log(" WIDTH: " + this.width)
+     console.log(" HEIGHT: " + this.height)
+
+
+     ctx2.font = "30px Permanent Marker";
+   }
 
     base_image.onload = function(){
 
@@ -452,6 +483,10 @@ class FlightPlanning extends Component {
       print('printarea', 'html')
     });
 
+    $( "#btn2" ).click(function() {
+       print('printarea2', 'html')
+    });
+
     function roundToTwo(num) {
       return +(Math.round(num + "e+1")  + "e-1");
     }
@@ -511,7 +546,7 @@ class FlightPlanning extends Component {
                 <b>Front seat 1</b>
                </Form.Label>
                <Col sm="10">
-                 <Form.Control type="frontseat1" placeholder="Front seat 1" />
+                 <Form.Control type="frontseat1" placeholder="Front seat 1" type="number" />
                </Col>
                </Form.Group>
 
@@ -550,7 +585,7 @@ class FlightPlanning extends Component {
                     <b>Rear seats</b>
                   </Form.Label>
                   <Col sm="10">
-                  <Form.Control type="backseats" placeholder="Rear seats" />
+                  <Form.Control type="backseats" placeholder="Rear seats" type="number" />
                   </Col>
                 </Form.Group>
 
@@ -560,7 +595,7 @@ class FlightPlanning extends Component {
                    <b>Std baggage</b>
                   </Form.Label>
                   <Col sm="10">
-                  <Form.Control type="stdbaggage" placeholder="Standard baggage" />
+                  <Form.Control type="stdbaggage" placeholder="Standard baggage" type="number" />
                   </Col>
                 </Form.Group>
 
@@ -570,7 +605,7 @@ class FlightPlanning extends Component {
                    <b>Baggage tube</b>
                   </Form.Label>
                   <Col sm="10">
-                  <Form.Control type="baggagetube" placeholder="Baggage tube" />
+                  <Form.Control type="baggagetube" placeholder="Baggage tube" type="number" />
                   </Col>
                 </Form.Group>
 
@@ -580,7 +615,7 @@ class FlightPlanning extends Component {
                    <b>Short baggage</b>
                   </Form.Label>
                   <Col sm="10">
-                  <Form.Control type="shortbaggage" placeholder="Short baggage" />
+                  <Form.Control type="shortbaggage" placeholder="Short baggage" type="number" />
                   </Col>
                 </Form.Group>
 
@@ -590,7 +625,7 @@ class FlightPlanning extends Component {
                    <b>Fwd baggage</b>
                   </Form.Label>
                   <Col sm="10">
-                  <Form.Control type="fwdbaggage" placeholder="Fwd baggage" />
+                  <Form.Control type="fwdbaggage" placeholder="Fwd baggage" type="number" />
                   </Col>
                 </Form.Group>
 
@@ -600,7 +635,7 @@ class FlightPlanning extends Component {
                     <b>Aft baggage</b>
                   </Form.Label>
                   <Col sm="10">
-                  <Form.Control type="aftbaggage" placeholder="Aft baggage" />
+                  <Form.Control type="aftbaggage" placeholder="Aft baggage" type="number" />
                   </Col>
                 </Form.Group>
 
@@ -610,7 +645,7 @@ class FlightPlanning extends Component {
                    <b>Fuel (usg)</b>
                   </Form.Label>
                   <Col sm="10">
-                  <Form.Control type="fuel" placeholder="Fuel (usg)" />
+                  <Form.Control type="fuel" placeholder="Fuel (usg)" type="number" />
                   </Col>
                 </Form.Group>
 
@@ -620,25 +655,25 @@ class FlightPlanning extends Component {
                    <b>Fuel burn</b>
                   </Form.Label>
                   <Col sm="10">
-                  <Form.Control type="fuelsburn" placeholder="Fuel burn (usg)" />
+                  <Form.Control type="fuelsburn" placeholder="Fuel burn (usg)" type="number" />
                   </Col>
                 </Form.Group>
-
-                <Button id="btn" variant="primary" size="md" block>
-                  Print
-                </Button>
-
             </Form>
             </Col>
           </Row>
+
+          <Button id="btn" variant="primary" size="md" block>
+            Print
+          </Button>
           <br />
           <Row>
-            <Col><div id="printarea">
+            <Col>
+            <div id="printarea">
              <canvas id="mycanvas" ref="canvas" />
-             </div>
+             <canvas id="mycanvas2" ref="canvas2" />
+            </div>
             </Col>
           </Row>
-
         </Container>
     );
   }
