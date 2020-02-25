@@ -99,6 +99,7 @@ class FlightPlanning extends Component {
        var aftbaggagemomentvalue;
        var zerofuelmassvalue;
        var zerofuelmassmomentvalue;
+       var zerofuelmassleverarmvalue;
        /*var zerofuelmassleverarmvalue;*/
        /*var zerofuelmassleverarmvalue2;*/
        var fuelmassvalue;
@@ -353,16 +354,16 @@ class FlightPlanning extends Component {
 
             zerofuelmassvalue = roundToTwo( +mass + +frontseatvalue + +backseatsvalue + +stdbaggagevalue + +baggagetubemassvalue + +shortbaggagemassvalue + +forwardbaggagemassvalue + +aftbaggagemassvalue);
             zerofuelmassmomentvalue = roundToTwo(+moment + +frontseatmomentvalue + +backseatmomentvalue + +stdbaggagevaluemoment + +baggagetubemomentvalue + +shortbaggagemomentvalue + +forwardbaggagemomentvalue + +aftbaggagemomentvalue);
-            /*zerofuelmassleverarmvalue = roundToTwo(zerofuelmassmomentvalue / zerofuelmassvalue);*/
+            zerofuelmassleverarmvalue = roundToThree(zerofuelmassmomentvalue / zerofuelmassvalue);
 
            /*zero fuel mass leverarm*/
-           ctx.fillText(checkvalue(roundToTwo(zerofuelmassmomentvalue / zerofuelmassvalue)) , 338, 733);
+           ctx.fillText(checkvalue(roundToTwoTwo(zerofuelmassmomentvalue / zerofuelmassvalue)) , 338, 733);
            /*zero fuel mass mass*/
            ctx.fillText(checkvalue(zerofuelmassvalue), 513, 733);
            /*zero fuel mass moment*/
            ctx.fillText(checkvalue(zerofuelmassmomentvalue), 688, 733);
            /*zero fuel mass leverarm 2*/
-           ctx.fillText(checkvalue(roundToThree(zerofuelmassmomentvalue / zerofuelmassvalue)), 504, 1039);
+           ctx.fillText(checkvalue(zerofuelmassleverarmvalue), 504, 1039);
 
            updateTakeoffMass();
         }
@@ -406,16 +407,17 @@ class FlightPlanning extends Component {
 
            takeoffmassvalue = roundToTwo(zerofuelmassvalue + +fuelmassvalue);
            takeoffmassmomentvalue = roundToTwo(+zerofuelmassmomentvalue + +fuelmomentvalue);
-           takeoffmassleverarmvalue = roundToTwo(takeoffmassmomentvalue / takeoffmassvalue);
+           takeoffmassleverarmvalue = roundToThree(takeoffmassmomentvalue / takeoffmassvalue);
 
            /*take of mass leverarm*/
-           ctx.fillText(checkvalue(takeoffmassleverarmvalue), 338, 850);
+           ctx.fillText(checkvalue(roundToTwoTwo(takeoffmassmomentvalue / takeoffmassvalue)), 338, 850);
            /*take of mass mass*/
            ctx.fillText(checkvalue(takeoffmassvalue), 513, 850);
            /*take of mass moment*/
            ctx.fillText(checkvalue(takeoffmassmomentvalue), 688, 850);
            /*take of mass leverarm 2*/
-           ctx.fillText(checkvalue(roundToThree(takeoffmassmomentvalue / takeoffmassvalue)), 504, 1067);
+           ctx.fillText(checkvalue(takeoffmassleverarmvalue), 504, 1067);
+
 
            updatelandingmass();
 
@@ -461,19 +463,61 @@ class FlightPlanning extends Component {
 
            landingmassvalue = roundToTwo(takeoffmassvalue - fuelburnmassvalue);
            landingmassmomentvalue = roundToTwo(takeoffmassmomentvalue - fuelburnmomentvalue);
-           landingmassleverarmvalue = roundToTwo(landingmassmomentvalue / landingmassvalue);
+           landingmassleverarmvalue = roundToThree(landingmassmomentvalue / landingmassvalue);
 
 
            /*landing mass leverarm*/
-           ctx.fillText(checkvalue(landingmassleverarmvalue), 338, 975);
+           ctx.fillText(checkvalue(roundToTwoTwo(landingmassmomentvalue / landingmassvalue)), 338, 975);
            /*landing mass mass*/
            ctx.fillText(checkvalue(landingmassvalue), 513, 975);
            /*landing mass moment*/
            ctx.fillText(checkvalue(landingmassmomentvalue), 688, 975);
            /*landing mass levararm 2*/
-           ctx.fillText(checkvalue(roundToThree(landingmassmomentvalue / landingmassvalue)), 504, 1095);
+           ctx.fillText(checkvalue(landingmassleverarmvalue), 504, 1095);
+
          }
 
+         function getPoints(){
+
+           /*clear the canvas*/
+           ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
+           ctx2.drawImage(base_image2, 0, 0, base_image2.width, base_image2.height);
+
+           /*zero fuel mass*/
+           var theY = (725 - ((zerofuelmassvalue - 940) / 0.8));
+           var theX = (250 + +((zerofuelmassleverarmvalue - 2.40) / 0.0002999));
+           ctx2.font = "40px Permanent Marker";
+           ctx2.fillStyle = "red";
+           ctx2.fillText(".", theX, theY);
+           ctx2.font = "15px Permanent Marker";
+           ctx2.fillStyle = "black";
+           ctx2.fillText("zfm", theX + 7, theY + 7);
+
+           /*take off mass value*/
+           var theY = (725 - ((takeoffmassvalue - 940) / 0.8));
+           var theX = (250 + +((takeoffmassleverarmvalue - 2.40) / 0.0002999));
+           ctx2.font = "40px Permanent Marker";
+           ctx2.fillStyle = "red";
+           ctx2.fillText(".", theX, theY);
+           ctx2.font = "15px Permanent Marker";
+           ctx2.fillStyle = "black";
+           ctx2.fillText("tom", theX + 7, theY + 7);
+
+           /*landing mass value*/
+           var theY = (725 - ((landingmassvalue - 940) / 0.8));
+           var theX = (250 + +((landingmassleverarmvalue - 2.40) / 0.0002999));
+           ctx2.font = "40px Permanent Marker";
+           ctx2.fillStyle = "red";
+           ctx2.fillText(".", theX, theY);
+           ctx2.font = "15px Permanent Marker";
+           ctx2.fillStyle = "black";
+           ctx2.fillText("lm", theX + 7, theY + 7);
+
+         }
+
+         $( "#btn2" ).click(function() {
+            getPoints();
+         });
      });
 
     }
@@ -483,9 +527,7 @@ class FlightPlanning extends Component {
       print('printarea', 'html')
     });
 
-    $( "#btn2" ).click(function() {
-       print('printarea2', 'html')
-    });
+
 
     function roundToTwo(num) {
       return +(Math.round(num + "e+1")  + "e-1");
@@ -502,7 +544,8 @@ class FlightPlanning extends Component {
       }else{
         return check;
       }
-}
+    }
+
   }
   render() {
     return (
@@ -662,21 +705,24 @@ class FlightPlanning extends Component {
             </Col>
           </Row>
 
-          <br /> 
+          <br />
           <Button id="btn" variant="primary" size="md" block>
             Print
           </Button>
           <br />
 
-          <div class="pagebreak"> </div>
+          <div className="pagebreak"> </div>
           <Row>
             <Col>
             <div id="printarea">
-             <canvas class="result" id="mycanvas" ref="canvas" />
-             <canvas class ="result" id="mycanvas2" ref="canvas2" />
+             <canvas className="result" id="mycanvas" ref="canvas" />
+             <canvas className ="result" id="mycanvas2" ref="canvas2" />
             </div>
             </Col>
           </Row>
+          <Button id="btn2" variant="primary" size="md" block>
+            Get points
+          </Button>
         </Container>
     );
   }
