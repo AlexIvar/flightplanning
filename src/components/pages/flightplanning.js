@@ -725,7 +725,6 @@ class FlightPlanning extends Component {
           <Button id="btn2" variant="primary" size="md" block>
             Get points
           </Button>
-          <br />
         </Container>
 
     );
