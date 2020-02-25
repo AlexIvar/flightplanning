@@ -722,9 +722,13 @@ class FlightPlanning extends Component {
             </div>
             </Col>
           </Row>
+          
+          <div className="pagebreak"> </div>
+          <br />
           <Button id="btn2" variant="primary" size="md" block>
             Get points
           </Button>
+          <br />
         </Container>
 
     );
