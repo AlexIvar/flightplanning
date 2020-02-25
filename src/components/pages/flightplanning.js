@@ -136,7 +136,7 @@ class FlightPlanning extends Component {
     ];
 
        $("#aircraft").change(function(){
-
+         ctx.font = "30px Permanent Marker";
          /*mtom text*/
          ctx.clearRect(700, 10, '180', '38');
          /*aircraft number text*/
@@ -722,7 +722,7 @@ class FlightPlanning extends Component {
             </div>
             </Col>
           </Row>
-          
+
           <div className="pagebreak"> </div>
           <br />
           <Button id="btn2" variant="primary" size="md" block>
