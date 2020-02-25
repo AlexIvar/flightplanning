@@ -72,10 +72,11 @@ class FlightPlanning extends Component {
      console.log(" HEIGHT: " + this.height)
 
 
-     ctx.font = "30px Permanent Marker";
+
 
      /*Document ready*/
      $(document).ready(function(){
+       ctx.font = "30px Permanent Marker";
        var aplane;
        var mass;
        var moment;
