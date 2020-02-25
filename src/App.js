@@ -9,6 +9,7 @@ import Header from './components/headerComponent/header';
 import Sidenavbar from './components/sidenavbarComponent/sidenavbar';
 import Homepage from './components/pages/homePage';
 import FlightPlanning from './components/pages/flightplanning';
+import Performance from './components/pages/performance';
 
 
 
@@ -23,6 +24,7 @@ function App() {
               <main role="main" className="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
                 <Route exact path='/' component={Homepage} />
                 <Route exact path='/FlightPlanning' component={FlightPlanning} />
+                <Route exact path='/Performance' component={Performance} />
               </main>
           </div>
        </div>
