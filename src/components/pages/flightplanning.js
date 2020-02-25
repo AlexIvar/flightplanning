@@ -519,6 +519,7 @@ class FlightPlanning extends Component {
          $( "#btn2" ).click(function() {
             getPoints();
          });
+
      });
 
     }
@@ -724,7 +725,9 @@ class FlightPlanning extends Component {
           <Button id="btn2" variant="primary" size="md" block>
             Get points
           </Button>
+          <br />
         </Container>
+
     );
   }
 }
