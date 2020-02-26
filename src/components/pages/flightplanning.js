@@ -553,7 +553,7 @@ class FlightPlanning extends Component {
     return (
       <Container fluid>
         <h1>Mass and balance</h1>
-
+        <p>DA40 NG</p>
           {/* Here we will have a image of the mass and balance sheet */}
           <Row>
             <Col>
