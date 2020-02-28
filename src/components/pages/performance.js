@@ -529,7 +529,8 @@ class Performance extends Component {
       <Container fluid>
 
         <h1>Performance</h1>
-         <p>Take of and landing (1100 kg)</p>
+         <p>Take of and landing (1100 kg).</p>
+         <p>Vref: 72</p>
 
           <code>Still in development...</code>
           {/* Here we will have a image of the mass and balance sheet */}
@@ -752,7 +753,7 @@ class Performance extends Component {
                     <Form.Check
                       type="switch"
                       id="wetSwitch"
-                      label="Check if runway wet"/>
+                      label="Toggle if runway wet"/>
                   </Col>
                   <Col>
                   </Col>

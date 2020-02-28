@@ -161,7 +161,7 @@ body {
 
 #mlabel2{
   font-size: 12px;
-  color: white;
+  color: black;
 }
 
 #welcomeJumbo{
@@ -189,13 +189,19 @@ background-color: #003a7d;
 }
 
 #performance1Outputs{
-  background-color: #272b34;
+  background-color: white;
+  border-color: ##003a7d;
+  border-style: solid;
+  border-width: thin;
 }
 
 #performance1Outputs2{
-  background-color: #272b34;
+  background-color: white;
+  border-color: ##003a7d;
+  border-style: solid;
+  border-width: thin;
 }
 
 .custom-control-label{
-  color:white;
+  color:black;
 }
