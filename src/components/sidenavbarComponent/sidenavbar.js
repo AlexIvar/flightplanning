@@ -21,7 +21,7 @@ function Sidenavbar() {
      <div className="list-group list-group-flush">
        <Link to="/" className="list-group-item list-group-item-action bg-light"> Home</Link>
        <Link to="/FlightPlanning" className="list-group-item list-group-item-action bg-light"> Mass and balance</Link>
-       <Link to="/Performance" className="list-group-item list-group-item-action bg-light"> Performance (1100kg)</Link>
+       <Link to="/Performance" className="list-group-item list-group-item-action bg-light"> Performance</Link>
      </div>
  </div>
   );
