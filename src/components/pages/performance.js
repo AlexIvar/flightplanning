@@ -5,9 +5,27 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
+import FormControl from 'react-bootstrap/FormControl'
+import InputGroup from 'react-bootstrap/InputGroup'
 import Button from 'react-bootstrap/Button'
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
+import Popover from "react-bootstrap/Popover";
+
 import $ from "jquery";
 import print from 'print-js'
+
+
+  const popover = (
+  <Popover id="popover-basic">
+    <Popover.Title as="h3">Take off runway available</Popover.Title>
+    <Popover.Content>
+    The length of runway declared available and suitable for the ground run of an aeroplane taking off.
+    </Popover.Content>
+  </Popover>
+);
+
+
 
 class Performance extends Component {
   componentDidMount() {
@@ -766,11 +784,23 @@ class Performance extends Component {
               <Col>
                 {/*TORA*/}
                 <Form.Group controlId="tora">
-                <Form.Label id="mlabel">
-                 <b>TORA</b>
-                </Form.Label>
-                  <Form.Control type="tora" placeholder="TORA" type="number" defaultValue="1672"/>
-                </Form.Group>
+                  <Form.Label id="mlabel">
+                    <b>TORA</b>
+                  </Form.Label>
+
+                  <InputGroup className="mb-3">
+              <FormControl
+                type="tora" placeholder="TORA" type="number" defaultValue="1672"
+              />
+                    <InputGroup.Append>
+                      <OverlayTrigger trigger="click"  placement="right" overlay={popover}>
+                              <Button>?</Button>
+                      </OverlayTrigger>
+                    </InputGroup.Append>
+                  </InputGroup>
+              </Form.Group>
+
+
               </Col>
               <Col>
                 {/*TODA*/}
