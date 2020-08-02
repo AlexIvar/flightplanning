@@ -793,7 +793,7 @@ class Performance extends Component {
                 type="tora" placeholder="TORA" type="number" defaultValue="1672"
               />
                     <InputGroup.Append>
-                      <OverlayTrigger trigger="click"  placement="right" overlay={popover}>
+                      <OverlayTrigger trigger="click"  placement="top" overlay={popover}>
                               <Button>?</Button>
                       </OverlayTrigger>
                     </InputGroup.Append>
