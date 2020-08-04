@@ -15,15 +15,254 @@ import Popover from "react-bootstrap/Popover";
 import $ from "jquery";
 import print from 'print-js'
 
+const popover = (
+<Popover id="popover-basic">
+  <Popover.Title as="h3" id="infoTitle">Takeoff run available</Popover.Title>
+  <Popover.Content>
+  The length of runway declared available and suitable for the ground run of an aeroplane taking off.
+  </Popover.Content>
+</Popover>
+);
 
-  const popover = (
+  const helpTora = (
   <Popover id="popover-basic">
-    <Popover.Title as="h3">Take off runway available</Popover.Title>
+    <Popover.Title as="h3" id="infoTitle">Takeoff run available</Popover.Title>
     <Popover.Content>
     The length of runway declared available and suitable for the ground run of an aeroplane taking off.
     </Popover.Content>
   </Popover>
 );
+
+const helpToda = (
+<Popover id="popover-basic">
+  <Popover.Title as="h3" id="infoTitle">Take off distance available</Popover.Title>
+  <Popover.Content>
+  The length of the take off run available (Takeoff Run Available (TORA)) plus the length of the clearway, where provided.
+  </Popover.Content>
+</Popover>
+);
+
+const helpAsda = (
+<Popover id="popover-basic">
+  <Popover.Title as="h3" id="infoTitle">Accelerate Stop Distance Available</Popover.Title>
+  <Popover.Content>
+  The length of the takeoff run plus the length of the Stopway, where provided.
+  </Popover.Content>
+</Popover>
+);
+
+const helpElevation = (
+<Popover id="popover-basic">
+  <Popover.Title as="h3" id="infoTitle">Elevation</Popover.Title>
+  <Popover.Content>
+  The elevation of the selected aerodrome.
+  </Popover.Content>
+</Popover>
+);
+
+const helpQNH = (
+<Popover id="popover-basic">
+  <Popover.Title as="h3" id="infoTitle">QNH</Popover.Title>
+  <Popover.Content>
+  The pressure set on the subscale of the altimeter so that the instrument indicates its height above sea level. The altimeter will read runway elevation when the aircraft is on the runway.
+  </Popover.Content>
+</Popover>
+);
+
+const helpTempature = (
+<Popover id="popover-basic">
+  <Popover.Title as="h3" id="infoTitle">Temperature</Popover.Title>
+  <Popover.Content>
+  The tempature of the selected airfield.
+  </Popover.Content>
+</Popover>
+);
+
+const helpWinddirection = (
+<Popover id="popover-basic">
+  <Popover.Title as="h3" id="infoTitle">Wind direction</Popover.Title>
+  <Popover.Content>
+  The direction of the wind on the selected airfield.
+  </Popover.Content>
+</Popover>
+);
+
+const helpWindspeed = (
+<Popover id="popover-basic">
+  <Popover.Title as="h3" id="infoTitle">QNH</Popover.Title>
+  <Popover.Content>
+    The speed of the wind on the selected airfield.
+  </Popover.Content>
+</Popover>
+);
+
+const helpRunway = (
+<Popover id="popover-basic">
+  <Popover.Title as="h3" id="infoTitle">Runway</Popover.Title>
+  <Popover.Content>
+    The direction of the runway in degrees magnetic.
+  </Popover.Content>
+</Popover>
+);
+
+const helpLDA = (
+<Popover id="popover-basic">
+  <Popover.Title as="h3" id="infoTitle">Landing distance available</Popover.Title>
+  <Popover.Content>
+    Landing Distance Available (LDA). The length of the runway which is declared available by the appropriate Authority and is suitable for the ground run of an aeroplane landing.
+  </Popover.Content>
+</Popover>
+);
+
+const helpLPressureAlt = (
+<Popover id="popover-basic">
+  <Popover.Title as="h3" id="infoTitle">Pressure altidude</Popover.Title>
+  <Popover.Content>
+    Pressure Altitude is simply the Altitude when the altimeter is set to 29.92” Hg which is the International Atmospheric Standard or ISA.
+    The pressure altidude is calculated using this formula: (((1013 - qnh) * 30) + elevation)
+  </Popover.Content>
+</Popover>
+);
+
+const helpLTODRtable = (
+<Popover id="popover-basic">
+  <Popover.Title as="h3" id="infoTitle">Take of distance required from table</Popover.Title>
+  <Popover.Content>
+    The TODR value is gotten from the table from the performance sheet by putting in the pressure altidude and temperature.
+  </Popover.Content>
+</Popover>
+);
+
+const helpLTODRtableWind = (
+<Popover id="popover-basic">
+  <Popover.Title as="h3" id="infoTitle">Take of distance required corrected by wind</Popover.Title>
+  <Popover.Content>
+    Formula to correct TODR by wind:  todr * (100 - (headwind * (10/12))) / 100;
+  </Popover.Content>
+</Popover>
+);
+
+const helpFinalTODR = (
+<Popover id="popover-basic">
+  <Popover.Title as="h3" id="infoTitle">Final TODR</Popover.Title>
+  <Popover.Content>
+    The final TODR is the TODR value from table corrected by wind and 30m added to the value.
+  </Popover.Content>
+</Popover>
+);
+
+const helpHeadwind = (
+<Popover id="popover-basic">
+  <Popover.Title as="h3" id="infoTitle">Headwind</Popover.Title>
+  <Popover.Content>
+     Formula for calculating headwind: abs(wind speed * cos((wind direction - runway hdg) * PI / 180))
+  </Popover.Content>
+</Popover>
+);
+
+const helpXwind = (
+<Popover id="popover-basic">
+  <Popover.Title as="h3" id="infoTitle">Crosswind</Popover.Title>
+  <Popover.Content>
+     Formula for calculating crosswind: abs(wind speed * sin((wind direction - runway hdg) * PI / 180));
+  </Popover.Content>
+</Popover>
+);
+
+const helpClearway = (
+<Popover id="popover-basic">
+  <Popover.Title as="h3" id="infoTitle">Clearway</Popover.Title>
+  <Popover.Content>
+    Formula for calculating the length of a clearway: (toda - tora)
+  </Popover.Content>
+</Popover>
+);
+
+const helpStopway = (
+<Popover id="popover-basic">
+  <Popover.Title as="h3" id="infoTitle">Stopway</Popover.Title>
+  <Popover.Content>
+      Formula for calculating the length of a stopway: (asda - tora)
+  </Popover.Content>
+</Popover>
+);
+
+const helpTORAFactored = (
+<Popover id="popover-basic">
+  <Popover.Title as="h3" id="infoTitle">TORA factored</Popover.Title>
+  <Popover.Content>
+    Final TORA = (TODR + 30). This number must not exceed TORA.
+  </Popover.Content>
+</Popover>
+);
+
+const helpTODAFactored = (
+<Popover id="popover-basic">
+  <Popover.Title as="h3" id="infoTitle">TODA factored</Popover.Title>
+  <Popover.Content>
+    Final TODA = (TODR * 1.15). This number must not exceed TODA.
+  </Popover.Content>
+</Popover>
+);
+
+const helpASDAFactored = (
+<Popover id="popover-basic">
+  <Popover.Title as="h3" id="infoTitle">ASDA factored</Popover.Title>
+  <Popover.Content>
+    Final ASDA = (TODR * 1.3). This number must not exceed ASDA.
+  </Popover.Content>
+</Popover>
+);
+
+const helpTORAnoClearwayOrStopway = (
+<Popover id="popover-basic">
+  <Popover.Title as="h3" id="infoTitle">TORA factored</Popover.Title>
+  <Popover.Content>
+    TORA = (TODR * 1.25). This number must not exceed TORA.
+  </Popover.Content>
+</Popover>
+);
+
+const helpLDRtable = (
+<Popover id="popover-basic">
+  <Popover.Title as="h3" id="infoTitle">Landing distance required from table</Popover.Title>
+  <Popover.Content>
+    The LDR value is gotten from the table from the performance sheet by putting in the pressure altidude and temperature.
+    If the runway is wet then 1.15 is mutliplied to this number.
+  </Popover.Content>
+</Popover>
+);
+
+const helpLDRwind = (
+<Popover id="popover-basic">
+  <Popover.Title as="h3" id="infoTitle">Landing distance corrected by wind</Popover.Title>
+  <Popover.Content>
+    Formula for correcting the LDR for wind: LDR * (100 - (headwind * (10/20))) / 100;
+        If the runway is wet then 1.15 is mutliplied to this number.
+  </Popover.Content>
+</Popover>
+);
+
+const helpLDRtableFactored = (
+<Popover id="popover-basic">
+  <Popover.Title as="h3" id="infoTitle">Landing distance from table factored</Popover.Title>
+  <Popover.Content>
+    (LDR from table * 1.43)
+        If the runway is wet then 1.15 is mutliplied to this number.
+  </Popover.Content>
+</Popover>
+);
+
+const helpLDRwindFactored = (
+<Popover id="popover-basic">
+  <Popover.Title as="h3" id="infoTitle">Landing distance corrected by wind factored</Popover.Title>
+  <Popover.Content>
+    (LDR corrected by wind * 1.43)
+        If the runway is wet then 1.15 is mutliplied to this number.
+  </Popover.Content>
+</Popover>
+);
+
 
 
 
@@ -783,33 +1022,38 @@ class Performance extends Component {
             <Form.Row>
               <Col>
                 {/*TORA*/}
-                <Form.Group controlId="tora">
+            <Form.Group controlId="tora">
                   <Form.Label id="mlabel">
                     <b>TORA</b>
                   </Form.Label>
 
                   <InputGroup className="mb-3">
-              <FormControl
-                type="tora" placeholder="TORA" type="number" defaultValue="1672"
-              />
+                   <FormControl type="tora" placeholder="TORA" type="number" defaultValue="1672"/>
                     <InputGroup.Append>
-                      <OverlayTrigger trigger="click"  placement="top" overlay={popover}>
-                              <Button>?</Button>
+                      <OverlayTrigger trigger="click"  placement="top" overlay={helpTora}>
+                              <Button id="helpbutton">?</Button>
                       </OverlayTrigger>
                     </InputGroup.Append>
                   </InputGroup>
               </Form.Group>
-
-
               </Col>
+
               <Col>
                 {/*TODA*/}
                 <Form.Group controlId="toda">
                 <Form.Label id="mlabel">
                  <b>TODA</b>
                 </Form.Label>
-                <Form.Control type="toda" placeholder="TODA" type="number" defaultValue="1799"/>
-                  </Form.Group>
+
+                <InputGroup className="mb-3">
+                <FormControl type="toda" placeholder="TODA" type="number" defaultValue="1799"/>
+                <InputGroup.Append>
+                  <OverlayTrigger trigger="click"  placement="top" overlay={helpToda}>
+                          <Button id="helpbutton">?</Button>
+                  </OverlayTrigger>
+                </InputGroup.Append>
+              </InputGroup>
+          </Form.Group>
               </Col>
               <Col>
                 {/*ASDA*/}
@@ -817,8 +1061,16 @@ class Performance extends Component {
                 <Form.Label id="mlabel">
                  <b>ASDA</b>
                 </Form.Label>
-                <Form.Control type="asda" placeholder="ASDA" type="number" defaultValue="1672" />
-                  </Form.Group>
+
+                <InputGroup className="mb-3">
+                <FormControl type="asda" placeholder="ASDA" type="number" defaultValue="1672" />
+                <InputGroup.Append>
+                  <OverlayTrigger trigger="click"  placement="top" overlay={helpAsda}>
+                          <Button id="helpbutton">?</Button>
+                  </OverlayTrigger>
+                </InputGroup.Append>
+              </InputGroup>
+          </Form.Group>
               </Col>
             </Form.Row>
 
@@ -829,7 +1081,15 @@ class Performance extends Component {
                 <Form.Label id="mlabel">
                  <b>Elevation</b>
                 </Form.Label>
-                    <Form.Control type="elevation" placeholder="Elevation" type="number" defaultValue="360"/>
+
+                <InputGroup className="mb-3">
+                    <FormControl type="elevation" placeholder="Elevation" type="number" defaultValue="360"/>
+                    <InputGroup.Append>
+                      <OverlayTrigger trigger="click"  placement="top" overlay={helpElevation}>
+                              <Button id="helpbutton">?</Button>
+                      </OverlayTrigger>
+                    </InputGroup.Append>
+                  </InputGroup>
                 </Form.Group>
               </Col>
               <Col>
@@ -838,7 +1098,15 @@ class Performance extends Component {
                 <Form.Label id="mlabel">
                 <b>QNH</b>
                 </Form.Label>
-                  <Form.Control type="qnh" placeholder="QNH" type="number" />
+
+                  <InputGroup className="mb-3">
+                  <FormControl type="qnh" placeholder="QNH" type="number" />
+                  <InputGroup.Append>
+                    <OverlayTrigger trigger="click"  placement="top" overlay={helpQNH}>
+                            <Button id="helpbutton">?</Button>
+                    </OverlayTrigger>
+                  </InputGroup.Append>
+                </InputGroup>
                 </Form.Group>
               </Col>
               <Col>
@@ -847,7 +1115,15 @@ class Performance extends Component {
                 <Form.Label id="mlabel">
                 <b>Temperature</b>
                 </Form.Label>
+
+                <InputGroup className="mb-3">
                   <Form.Control type="qnh" placeholder="Temperature" type="number" />
+                  <InputGroup.Append>
+                    <OverlayTrigger trigger="click"  placement="top" overlay={helpTempature}>
+                            <Button id="helpbutton">?</Button>
+                    </OverlayTrigger>
+                  </InputGroup.Append>
+                </InputGroup>
                 </Form.Group>
               </Col>
             </Form.Row>
@@ -855,15 +1131,36 @@ class Performance extends Component {
             <Form.Row>
                   <Form.Group as={Col} md="6" controlId="winddirection">
                     <Form.Label id="mlabel"><b>Wind direcetion</b></Form.Label>
+                    <InputGroup>
                     <Form.Control type="number" placeholder="Wind direction" required />
+                    <InputGroup.Append>
+                      <OverlayTrigger trigger="click"  placement="top" overlay={helpWinddirection}>
+                              <Button id="helpbutton">?</Button>
+                      </OverlayTrigger>
+                    </InputGroup.Append>
+                  </InputGroup>
                   </Form.Group>
                   <Form.Group as={Col} md="3" controlId="windspeed">
                     <Form.Label id="mlabel"><b>Wind speed</b></Form.Label>
+                      <InputGroup>
                     <Form.Control type="number" placeholder="State" required />
+                    <InputGroup.Append>
+                      <OverlayTrigger trigger="click"  placement="top" overlay={helpWindspeed}>
+                              <Button id="helpbutton">?</Button>
+                      </OverlayTrigger>
+                    </InputGroup.Append>
+                  </InputGroup>
                   </Form.Group>
                   <Form.Group as={Col} md="3" controlId="runway">
                     <Form.Label id="mlabel"><b>Runway</b></Form.Label>
-                    <Form.Control type="text" placeholder="runway" defaultValue="210" required />
+                    <InputGroup>
+                    <Form.Control type="text" placeholder="runway" defaultValue="212" required />
+                    <InputGroup.Append>
+                      <OverlayTrigger trigger="click"  placement="top" overlay={helpRunway}>
+                              <Button id="helpbutton">?</Button>
+                      </OverlayTrigger>
+                    </InputGroup.Append>
+                  </InputGroup>
                   </Form.Group>
             </Form.Row>
 
@@ -874,7 +1171,14 @@ class Performance extends Component {
                     <Form.Label id="mlabel">
                      <b>LDA most favorable</b>
                     </Form.Label>
+                    <InputGroup className="mb-3">
                         <Form.Control type="lda1" placeholder="LDA most favorable" defaultValue="1672" type="number" />
+                        <InputGroup.Append>
+                          <OverlayTrigger trigger="click"  placement="top" overlay={helpLDA}>
+                                  <Button id="helpbutton">?</Button>
+                          </OverlayTrigger>
+                        </InputGroup.Append>
+                      </InputGroup>
                     </Form.Group>
                   </Col>
                   <Col>
@@ -883,7 +1187,14 @@ class Performance extends Component {
                     <Form.Label id="mlabel">
                     <b>LDA most likely</b>
                     </Form.Label>
+                    <InputGroup className="mb-3">
                       <Form.Control type="lda2" placeholder="LDA most likely" defaultValue="1672" type="number" />
+                      <InputGroup.Append>
+                        <OverlayTrigger trigger="click"  placement="top" overlay={helpLDA}>
+                                <Button id="helpbutton">?</Button>
+                        </OverlayTrigger>
+                      </InputGroup.Append>
+                    </InputGroup>
                     </Form.Group>
                   </Col>
                 </Form.Row>
@@ -897,7 +1208,14 @@ class Performance extends Component {
                     <Form.Label id="mlabel2">
                     <b>Pressure altidude</b>
                     </Form.Label>
+                    <InputGroup>
                       <Form.Control disabled type="pressureAltidude" type="number" />
+                      <InputGroup.Append>
+                        <OverlayTrigger trigger="click"  placement="top" overlay={helpLPressureAlt}>
+                                <Button id="helpbutton">?</Button>
+                        </OverlayTrigger>
+                      </InputGroup.Append>
+                    </InputGroup>
                     </Form.Group>
                   </Col>
                   <Col>
@@ -906,7 +1224,14 @@ class Performance extends Component {
                       <Form.Label id="mlabel2">
                       <b>TODR value from table</b>
                       </Form.Label>
+                        <InputGroup>
                         <Form.Control disabled type="todrTable" type="number" />
+                        <InputGroup.Append>
+                          <OverlayTrigger trigger="click"  placement="top" overlay={helpLTODRtable}>
+                                  <Button id="helpbutton">?</Button>
+                          </OverlayTrigger>
+                        </InputGroup.Append>
+                      </InputGroup>
                       </Form.Group>
                   </Col>
                 </Form.Row>
@@ -917,7 +1242,14 @@ class Performance extends Component {
                         <Form.Label id="mlabel2">
                         <b>TODR corrected by wind</b>
                         </Form.Label>
+                          <InputGroup>
                           <Form.Control disabled type="windCorrectionTodr" type="number" />
+                          <InputGroup.Append>
+                            <OverlayTrigger trigger="click"  placement="top" overlay={helpLTODRtableWind}>
+                                    <Button id="helpbutton">?</Button>
+                            </OverlayTrigger>
+                          </InputGroup.Append>
+                        </InputGroup>
                         </Form.Group>
                       </Col>
                       <Col>
@@ -926,7 +1258,14 @@ class Performance extends Component {
                         <Form.Label id="mlabel2">
                         <b>Final TODR (+ 30m)</b>
                         </Form.Label>
+                        <InputGroup>
                           <Form.Control disabled type="finalTodr" type="number" />
+                          <InputGroup.Append>
+                            <OverlayTrigger trigger="click"  placement="top" overlay={helpFinalTODR}>
+                                    <Button id="helpbutton">?</Button>
+                            </OverlayTrigger>
+                          </InputGroup.Append>
+                        </InputGroup>
                         </Form.Group>
                       </Col>
                    </Form.Row>
@@ -938,7 +1277,14 @@ class Performance extends Component {
                        <Form.Label id="mlabel2">
                        <b>Headwind</b>
                        </Form.Label>
+                         <InputGroup>
                          <Form.Control disabled type="headWind" type="number" />
+                         <InputGroup.Append>
+                           <OverlayTrigger trigger="click"  placement="top" overlay={helpHeadwind}>
+                                   <Button id="helpbutton">?</Button>
+                           </OverlayTrigger>
+                         </InputGroup.Append>
+                       </InputGroup>
                        </Form.Group>
                      </Col>
                      <Col>
@@ -947,7 +1293,14 @@ class Performance extends Component {
                        <Form.Label id="mlabel2">
                        <b>Crosswind</b>
                        </Form.Label>
+                        <InputGroup>
                          <Form.Control disabled type="crossWind" type="number" />
+                         <InputGroup.Append>
+                           <OverlayTrigger trigger="click"  placement="top" overlay={helpXwind}>
+                                   <Button id="helpbutton">?</Button>
+                           </OverlayTrigger>
+                         </InputGroup.Append>
+                       </InputGroup>
                        </Form.Group>
                      </Col>
                   </Form.Row>
@@ -961,7 +1314,14 @@ class Performance extends Component {
                       <Form.Label id="mlabel2">
                       <b>Clearway length</b>
                       </Form.Label>
+                        <InputGroup>
                         <Form.Control disabled type="clearwayLenght" type="number" />
+                        <InputGroup.Append>
+                          <OverlayTrigger trigger="click"  placement="top" overlay={helpClearway}>
+                                  <Button id="helpbutton">?</Button>
+                          </OverlayTrigger>
+                        </InputGroup.Append>
+                      </InputGroup>
                       </Form.Group>
                     </Col>
                     <Col>
@@ -970,7 +1330,14 @@ class Performance extends Component {
                       <Form.Label id="mlabel2">
                       <b>Stopway length</b>
                       </Form.Label>
+                      <InputGroup>
                         <Form.Control disabled type="stopwayLenght" type="number" />
+                        <InputGroup.Append>
+                          <OverlayTrigger trigger="click"  placement="top" overlay={helpStopway}>
+                                  <Button id="helpbutton">?</Button>
+                          </OverlayTrigger>
+                        </InputGroup.Append>
+                      </InputGroup>
                       </Form.Group>
                     </Col>
                   </Form.Row>
@@ -981,7 +1348,14 @@ class Performance extends Component {
                           <Form.Label id="mlabel2">
                           <b>TORA factored</b>
                           </Form.Label>
+                          <InputGroup>
                             <Form.Control disabled type="toraFactored" type="number" />
+                            <InputGroup.Append>
+                              <OverlayTrigger trigger="click"  placement="top" overlay={helpTORAFactored}>
+                                      <Button id="helpbutton">?</Button>
+                              </OverlayTrigger>
+                            </InputGroup.Append>
+                          </InputGroup>
                           </Form.Group>
                         </Col>
                         <Col>
@@ -990,7 +1364,14 @@ class Performance extends Component {
                           <Form.Label id="mlabel2">
                           <b>TODA factored</b>
                           </Form.Label>
+                          <InputGroup>
                             <Form.Control disabled type="todaFactored" type="number" />
+                            <InputGroup.Append>
+                              <OverlayTrigger trigger="click"  placement="top" overlay={helpTODAFactored}>
+                                      <Button id="helpbutton">?</Button>
+                              </OverlayTrigger>
+                            </InputGroup.Append>
+                          </InputGroup>
                           </Form.Group>
                         </Col>
                         <Col>
@@ -999,7 +1380,14 @@ class Performance extends Component {
                           <Form.Label id="mlabel2">
                           <b>ASDA factored</b>
                           </Form.Label>
+                          <InputGroup>
                             <Form.Control disabled type="asdaFactored" type="number" />
+                            <InputGroup.Append>
+                              <OverlayTrigger trigger="click"  placement="top" overlay={helpASDAFactored}>
+                                      <Button id="helpbutton">?</Button>
+                              </OverlayTrigger>
+                            </InputGroup.Append>
+                          </InputGroup>
                           </Form.Group>
                         </Col>
                      </Form.Row>
@@ -1014,7 +1402,14 @@ class Performance extends Component {
                        <Form.Label id="mlabel2">
                        <b>TODR</b>
                        </Form.Label>
+                       <InputGroup>
                          <Form.Control disabled type="todrFactored" type="number" />
+                         <InputGroup.Append>
+                           <OverlayTrigger trigger="click"  placement="top" overlay={helpTORAnoClearwayOrStopway}>
+                                   <Button id="helpbutton">?</Button>
+                           </OverlayTrigger>
+                         </InputGroup.Append>
+                       </InputGroup>
                        </Form.Group>
                      </Col>
                   </Form.Row>
@@ -1042,7 +1437,14 @@ class Performance extends Component {
                     <Form.Label id="mlabel2">
                     <b>LDR from table</b>
                     </Form.Label>
+                     <InputGroup>
                       <Form.Control disabled type="ldrTable" type="number" />
+                      <InputGroup.Append>
+                        <OverlayTrigger trigger="click"  placement="top" overlay={helpLDRtable}>
+                                <Button id="helpbutton">?</Button>
+                        </OverlayTrigger>
+                      </InputGroup.Append>
+                    </InputGroup>
                     </Form.Group>
                 </Col>
                 <Col>
@@ -1051,7 +1453,14 @@ class Performance extends Component {
                     <Form.Label id="mlabel2">
                     <b>LDR corrected by wind</b>
                     </Form.Label>
+                    <InputGroup>
                       <Form.Control disabled type="windCorrectionLdr" type="number" />
+                      <InputGroup.Append>
+                        <OverlayTrigger trigger="click"  placement="top" overlay={helpLDRwind}>
+                                <Button id="helpbutton">?</Button>
+                        </OverlayTrigger>
+                      </InputGroup.Append>
+                    </InputGroup>
                     </Form.Group>
                 </Col>
                 </Form.Row>
@@ -1062,7 +1471,14 @@ class Performance extends Component {
                     <Form.Label id="mlabel2">
                     <b>LDR from table factored</b>
                     </Form.Label>
+                    <InputGroup>
                       <Form.Control disabled type="ldrTableFactorized" type="number" />
+                      <InputGroup.Append>
+                        <OverlayTrigger trigger="click"  placement="top" overlay={helpLDRtableFactored}>
+                                <Button id="helpbutton">?</Button>
+                        </OverlayTrigger>
+                      </InputGroup.Append>
+                    </InputGroup>
                     </Form.Group>
                 </Col>
                 <Col>
@@ -1071,7 +1487,14 @@ class Performance extends Component {
                     <Form.Label id="mlabel2">
                     <b>LDR corrected by wind factored</b>
                     </Form.Label>
+                    <InputGroup>
                       <Form.Control disabled type="windCorrectionLdrFactorized" type="number" />
+                      <InputGroup.Append>
+                        <OverlayTrigger trigger="click"  placement="top" overlay={helpLDRwindFactored}>
+                                <Button id="helpbutton">?</Button>
+                        </OverlayTrigger>
+                      </InputGroup.Append>
+                    </InputGroup>
                     </Form.Group>
                 </Col>
                 </Form.Row>

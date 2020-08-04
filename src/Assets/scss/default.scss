@@ -1,6 +1,25 @@
 @import "_config.scss";
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker&disp');
 
+
+#helpbutton:focus {
+  box-shadow: none !important;
+}
+
+#helpbutton {
+  box-shadow: none !important;
+  padding-bottom: 3px;
+  background-color: #f8f9fa;
+  color: #007bfe;
+}
+
+#popover-basic{
+  border: 1px solid rgb(0, 123, 254);
+}
+
+#infoTitle{
+  color: #007bfe;
+}
 /*
 .collapse:not(.show) {
     display: none;
@@ -185,19 +204,20 @@ body {
 
 #btn{
 background-color: #003a7d;
-
 }
+
+
 
 #performance1Outputs{
   background-color: white;
-  border-color: ##003a7d;
+  border-color: #003a7d;
   border-style: solid;
   border-width: thin;
 }
 
 #performance1Outputs2{
   background-color: white;
-  border-color: ##003a7d;
+  border-color: #003a7d;
   border-style: solid;
   border-width: thin;
 }
