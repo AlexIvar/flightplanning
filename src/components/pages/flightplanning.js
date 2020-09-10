@@ -620,6 +620,7 @@ class FlightPlanning extends Component {
                  <option value="80">Paul Jenkins</option>
                  <option value="90">Piers Smerdon</option>
                  <option value="72">Mark Emuss</option>
+                 <option value="95">Tamer</option>
                  </Form.Control>
                  </Col>
               </Form.Group>
