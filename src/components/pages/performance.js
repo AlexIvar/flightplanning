@@ -372,6 +372,8 @@ class Performance extends Component {
 
        $("#noClearwayAndStopway").hide();
        $("#performance1 :input").change(function() {
+
+
          console.log("the data has changed")
          console.log("elevation: " + document.getElementById("elevation").value)
          console.log("qnh: " + document.getElementById("qnh").value)
@@ -986,7 +988,7 @@ class Performance extends Component {
       <Container fluid>
 
         <h1>Performance</h1>
-         <p>Take of and landing</p>
+         <p>Take off and landing</p>
 
           <code>Still in development...</code>
 

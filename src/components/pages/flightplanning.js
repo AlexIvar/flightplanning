@@ -123,6 +123,7 @@ class FlightPlanning extends Component {
        { value: 'C', mass: '958', moment: 2377, mtom: 1310 },
        { value: 'D', mass: '954', moment: 2365, mtom: 1310 },
        { value: 'E', mass: '962', moment: 2393, mtom: 1280 },
+       { value: 'F', mass: '953', moment: 2376, mtom: 1310 },
        { value: 'G', mass: '955', moment: 2367, mtom: 1280 },
        { value: 'H', mass: '958', moment: 2378, mtom: 1310 },
        { value: 'J', mass: '959', moment: 2378, mtom: 1310 },
@@ -132,7 +133,9 @@ class FlightPlanning extends Component {
        { value: 'O', mass: '957', moment: 2371, mtom: 1310 },
        { value: 'P', mass: '958', moment: 2393, mtom: 1310 },
        { value: 'R', mass: '958', moment: 2390, mtom: 1310 },
-       { value: 'T', mass: '950', moment: 2377, mtom: 1310 }
+       { value: 'S', mass: '969', moment: 2398, mtom: 1280 },
+       { value: 'T', mass: '950', moment: 2377, mtom: 1310 },
+       { value: 'X', mass: '957', moment: 2406, mtom: 1310 }
     ];
 
        $("#aircraft").change(function(){
