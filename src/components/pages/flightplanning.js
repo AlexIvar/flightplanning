@@ -574,6 +574,7 @@ class FlightPlanning extends Component {
                   <option value="C">G-CTSC</option>
                   <option value="D">G-CTSD</option>
                   <option value="E">G-CTSE</option>
+                  <option value="F">G-CTSF</option>
                   <option value="G">G-CTSG</option>
                   <option value="H">G-CTSH</option>
                   <option value="J">G-CTSJ</option>
@@ -583,7 +584,9 @@ class FlightPlanning extends Component {
                   <option value="O">G-CTSO</option>
                   <option value="P">G-CTSP</option>
                   <option value="R">G-CTSR</option>
+                  <option value="S">G-CTSS</option>
                   <option value="T">G-CTST</option>
+                  <option value="X">G-CTSX</option>
                   </Form.Control>
                   </Col>
                </Form.Group>
