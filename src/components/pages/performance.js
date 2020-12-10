@@ -374,7 +374,7 @@ class Performance extends Component {
        $("#performance1 :input").change(function() {
 
 
-         console.log("the data has changed")
+         console.log("the data has changed yee")
          console.log("elevation: " + document.getElementById("elevation").value)
          console.log("qnh: " + document.getElementById("qnh").value)
          console.log("pressure alt: " + pressureAlt(document.getElementById("elevation").value, document.getElementById("qnh").value));
@@ -1030,7 +1030,7 @@ class Performance extends Component {
                   </Form.Label>
 
                   <InputGroup className="mb-3">
-                   <FormControl type="tora" placeholder="TORA" type="number" defaultValue="1672"/>
+                   <FormControl type="tora" placeholder="TORA" type="number" defaultValue="2026"/>
                     <InputGroup.Append>
                       <OverlayTrigger trigger="click"  placement="top" overlay={helpTora}>
                               <Button id="helpbutton">?</Button>
@@ -1048,7 +1048,7 @@ class Performance extends Component {
                 </Form.Label>
 
                 <InputGroup className="mb-3">
-                <FormControl type="toda" placeholder="TODA" type="number" defaultValue="1799"/>
+                <FormControl type="toda" placeholder="TODA" type="number" defaultValue="2086"/>
                 <InputGroup.Append>
                   <OverlayTrigger trigger="click"  placement="top" overlay={helpToda}>
                           <Button id="helpbutton">?</Button>
@@ -1065,7 +1065,7 @@ class Performance extends Component {
                 </Form.Label>
 
                 <InputGroup className="mb-3">
-                <FormControl type="asda" placeholder="ASDA" type="number" defaultValue="1672" />
+                <FormControl type="asda" placeholder="ASDA" type="number" defaultValue="2026" />
                 <InputGroup.Append>
                   <OverlayTrigger trigger="click"  placement="top" overlay={helpAsda}>
                           <Button id="helpbutton">?</Button>
@@ -1085,7 +1085,7 @@ class Performance extends Component {
                 </Form.Label>
 
                 <InputGroup className="mb-3">
-                    <FormControl type="elevation" placeholder="Elevation" type="number" defaultValue="360"/>
+                    <FormControl type="elevation" placeholder="Elevation" type="number" defaultValue="38"/>
                     <InputGroup.Append>
                       <OverlayTrigger trigger="click"  placement="top" overlay={helpElevation}>
                               <Button id="helpbutton">?</Button>
@@ -1156,7 +1156,7 @@ class Performance extends Component {
                   <Form.Group as={Col} md="3" controlId="runway">
                     <Form.Label id="mlabel"><b>Runway</b></Form.Label>
                     <InputGroup>
-                    <Form.Control type="text" placeholder="runway" defaultValue="212" required />
+                    <Form.Control type="text" placeholder="runway" defaultValue="255" required />
                     <InputGroup.Append>
                       <OverlayTrigger trigger="click"  placement="top" overlay={helpRunway}>
                               <Button id="helpbutton">?</Button>
@@ -1174,7 +1174,7 @@ class Performance extends Component {
                      <b>LDA most favorable</b>
                     </Form.Label>
                     <InputGroup className="mb-3">
-                        <Form.Control type="lda1" placeholder="LDA most favorable" defaultValue="1672" type="number" />
+                        <Form.Control type="lda1" placeholder="LDA most favorable" defaultValue="1970" type="number" />
                         <InputGroup.Append>
                           <OverlayTrigger trigger="click"  placement="top" overlay={helpLDA}>
                                   <Button id="helpbutton">?</Button>
@@ -1190,7 +1190,7 @@ class Performance extends Component {
                     <b>LDA most likely</b>
                     </Form.Label>
                     <InputGroup className="mb-3">
-                      <Form.Control type="lda2" placeholder="LDA most likely" defaultValue="1672" type="number" />
+                      <Form.Control type="lda2" placeholder="LDA most likely" defaultValue="1970" type="number" />
                       <InputGroup.Append>
                         <OverlayTrigger trigger="click"  placement="top" overlay={helpLDA}>
                                 <Button id="helpbutton">?</Button>
